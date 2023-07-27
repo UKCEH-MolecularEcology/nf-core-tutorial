@@ -8,12 +8,25 @@
 ## For the 16S/18S/ITS afficianados
  - Checkout [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
  - A video on the usage and utility of `ampliseq` can be seen [here](https://youtu.be/a0VOEeAvETs).
-
-
+&nbsp;
 ### How to Run [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1) from [nf-core](https://nf-co.re/)
  - See the [Quick start](https://nf-co.re/ampliseq/2.6.1/docs/usage#quick-start) options. 
  - For additional details or options of running the pipeline, see [here](https://nf-co.re/ampliseq/2.6.1/docs/usage#running-the-pipeline).
-**Important**:
+&nbsp;
+## **Important**: Input data setup
+ - `ampliseq` allows for multiple input options.
+ - They include:
+     1. [Direct FASTQ input](https://nf-co.re/ampliseq/2.6.1/docs/usage#direct-fastq-input)
+     2. [ASV/OTU fasta](https://nf-co.re/ampliseq/2.6.1/docs/usage#asvotu-fasta-input)
+     3. [Samplesheet](https://nf-co.re/ampliseq/2.6.1/docs/usage#samplesheet-input)
+*Note*: The easiest of these would be the [Samplesheet](https://nf-co.re/ampliseq/2.6.1/docs/usage#samplesheet-input), especially 'cos we have a [script]() to generate the `Samplesheet` easily.
+&nbsp;
+### Generating the Samplesheet
+ - Run the `make_samplesheet.sh` script and provide as a variable the folder where the raw files are located.
+```bash
+./make_samplesheet.sh /raid2/scratch/timgoo/SeqData/LockedUpExp8__/ITS
+```
+
 
 ```bash
 nextflow run nf-core/ampliseq \

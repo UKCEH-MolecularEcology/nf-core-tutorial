@@ -69,7 +69,7 @@ nextflow run nf-core/ampliseq \
 ```bash
 nextflow run nf-core/ampliseq -profile test,singularity --outdir test_run
 ```   
- - To see how a full *test run* was performed with 16S data, see [here](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/blob/main/notes/test_run.md#errors-due-to-mismatch-between-samples-in-table-and-samples-in-metadata).
+ - To see how a *full test run* was performed with 16S data, see [test_run](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/blob/main/notes/test_run.md#errors-due-to-mismatch-between-samples-in-table-and-samples-in-metadata).
 &nbsp;
 
 ### Dealing with common errors 

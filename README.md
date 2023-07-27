@@ -5,6 +5,7 @@
 
 *Note: To install `nextflow` on your own machines, see [here](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/edit/main/README.md#manual-nextflow-installation). **For the brave of heart:** Additional nf-core [`tips and tricks`](https://nf-co.re/docs/usage/introduction#tips-and-tricks)*.
 
+&nbsp;
 ## For the 16S/18S/ITS afficianados
  - Checkout [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
  - A video on the usage and utility of `ampliseq` can be seen [here](https://youtu.be/a0VOEeAvETs).
@@ -35,6 +36,8 @@ chmod +x ./scripts/make_samplesheet.sh
 ./scripts/make_samplesheet.sh /raid2/scratch/timgoo/SeqData/LockedUpExp8__/ITS
 ```
  - The above script generates a table as shown below.
+   
+*Note*: The `run` column is optional and only needs to be provided if samples span multiple sequencing runs.
 
 | sampleID | forwardReads | reverseReads      | run |
 | ----------- | ----------- | ----------- | ----------- |
@@ -43,8 +46,8 @@ sample2 | ./data/S2_fw.fastq.gz | ./data/S2_rv.fastq.gz | A
 sample3 | ./S4x.fastq.gz | ./S4y.fastq.gz | B
 sample4 | ./a.fastq.gz | ./b.fastq.gz | B  
 
-*Note*: Depending on the suffixes in your own raw fastq files, `line 23` of the [`make_samplesheet.sh`](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/blob/main/scripts/make_samplesheet.sh) script may need to be edited. 
-*Note*: For example: replace `Exp8` in the `awk function` below with the first part of your sample name. This is usually a project ID or a sequencing run number.
+*Note*: Depending on the suffixes in your own raw fastq files, `line 23` of the [`make_samplesheet.sh`](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/blob/main/scripts/make_samplesheet.sh) script may need to be edited.  
+*Note*: For example: replace `Exp8` in the `awk function` below with the first part of your sample name. This is usually a project ID or a sequencing run number. 
 ```bash
 awk -v "OFS=\t" '{$1=$1; sub(/^.*Exp8/, "Exp8", $1); split($1, arr, "_"); $1=arr[1]}1'
 ```

@@ -80,7 +80,8 @@ nextflow run nf-core/ampliseq -profile test,singularity --outdir test_run
  - If you run an error due to a `mismatch between samples in *sample.tsv* and samples in the metadata file`, see below:
 
 &nbsp;
- - Removed missing samples from sample.tsv file and created _sample_filtered.tsv_ file
+*Example*
+- Removed missing samples from sample.tsv file and created _sample_filtered.tsv_ file
  - List of samples to be removed obtained from Ampliseq Error message
 ```bash
 samples_to_remove=(         
@@ -157,8 +158,7 @@ ampliseq_output
  - For setting up `nextflow` on your own machines, see below.
 &nbsp;  
 #### Setting up nextflow conda environment
-#### Install conda
-- Conda (can be used together w/ `snakemake`) (recommended)
+- Conda (can be used together w/ `nextflow`) (recommended)
   - [Conda](https://docs.conda.io/projects/conda/en/latest/index.html)
   - [Miniconda](https://docs.conda.io/en/latest/miniconda.html)
   - [Anaconda](https://anaconda.org/)

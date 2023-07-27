@@ -3,8 +3,7 @@
  - Thanks to the efforts of [Milo Brooks](https://www.ceh.ac.uk/staff/milo-brooks).
  - `nextflow` provides easy-access to all of the [nf-core pipelines](https://nf-co.re/pipelines).
 
-*Note*: To install `nextflow` on your own machines, see [here](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/edit/main/README.md#manual-nextflow-installation).
-**For the brave of heart:** *Additional nf-core [`tips and tricks`](https://nf-co.re/docs/usage/introduction#tips-and-tricks)*
+*Note*: To install `nextflow` on your own machines, see [here](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/edit/main/README.md#manual-nextflow-installation). **For the brave of heart:** *Additional nf-core [`tips and tricks`](https://nf-co.re/docs/usage/introduction#tips-and-tricks)*.
 &nbsp;
 ## For the 16S/18S/ITS afficianados
  - Checkout [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
@@ -42,8 +41,8 @@ sample4 | ./a.fastq.gz | ./b.fastq.gz | B
 awk -v "OFS=\t" '{$1=$1; sub(/^.*Exp8/, "Exp8", $1); split($1, arr, "_"); $1=arr[1]}1'
 ```
 &nbsp;
-### Running [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
- - `Ampliseq` can be run by using [Singularity](https://osf.io/k89fh/wiki/Singularity/) as shown below.
+### Running **16S analyses**  on [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
+ - `Ampliseq` can be used for **16S analyses**run using [Singularity](https://osf.io/k89fh/wiki/Singularity/) as shown below.
 ```bash
 nextflow run nf-core/ampliseq \
     -r 2.3.2 \

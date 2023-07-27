@@ -138,7 +138,7 @@ nextflow run nf-core/ampliseq \
 &nbsp;
 ### Ampliseq Output
  - The tool generates several output files; see [here](https://nf-co.re/ampliseq/2.6.1/docs/output) for a description of all the files.
- - Example, the `qiime2` folder contains all the outputs from [Qiime2](https://qiime2.org/), including diversity plots, ancom, ordinations etc.
+ - For example, the `qiime2` folder contains all the outputs from [Qiime2](https://qiime2.org/), including diversity plots, ancom, ordinations etc.
 ```
 ampliseq_output
 ├── barrnap

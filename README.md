@@ -22,10 +22,11 @@
 *Note*: The easiest of these would be the [Samplesheet](https://nf-co.re/ampliseq/2.6.1/docs/usage#samplesheet-input), especially 'cos we have a [script]() to generate the `Samplesheet` easily.
 &nbsp;
 ### Generating the Samplesheet
- - Run the `make_samplesheet.sh` script and provide as a variable the folder where the raw files are located.
+ - Run the [`make_samplesheet.sh`](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/blob/main/scripts/make_samplesheet.sh) script and provide as a variable the folder where the raw `fastq.gz` files are located.
 ```bash
 ./make_samplesheet.sh /raid2/scratch/timgoo/SeqData/LockedUpExp8__/ITS
 ```
+*Note*: Depending on the suffixes in your own raw fastq files
 
 
 ```bash

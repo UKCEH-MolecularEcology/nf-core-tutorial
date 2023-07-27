@@ -130,9 +130,27 @@ nextflow run nf-core/ampliseq \
     --illumina_pe_its \
     --FW_primer GTGARTCATCGAATCTTTG \
     --RV_primer TCCTCCGCTTATTGATATGC \
-    --metadata "metadata/edited_metadata_sequencing_timgoo_ITS.txt" \
-    --outdir "./timgoo_ITSresults" 
+    --metadata "metadata/ITS_Metadata.tsv" \
+    --outdir "./ampliseq_ITS_output" 
 ```
+
+&nbsp;
+### Ampliseq Output
+ - The tool generates several output files; see [here](https://nf-co.re/ampliseq/2.6.1/docs/output) for a description of all the files.
+ - Example, the `qiime2` folder contains all the outputs from [Qiime2](https://qiime2.org/), including diversity plots, ancom, ordinations etc.
+```
+ampliseq_output
+├── barrnap
+├── cutadapt
+├── dada2
+├── fastqc
+├── input
+├── multiqc
+├── overall_summary.tsv
+├── pipeline_info
+└── qiime2
+```
+
 
 &nbsp;
 ### Manual nextflow installation

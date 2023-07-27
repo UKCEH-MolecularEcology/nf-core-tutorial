@@ -1,10 +1,11 @@
 # nf-core-tutorial
- - We now have [nextflow](https://www.nextflow.io/) on **neohuxley**.
+ - We now have [nextflow](https://www.nextflow.io/) and [Singularity](https://osf.io/k89fh/wiki/Singularity/) on **neohuxley**.
  - Thanks to the efforts of [Milo Brooks](https://www.ceh.ac.uk/staff/milo-brooks).
  - `nextflow` provides easy-access to all of the [nf-core pipelines](https://nf-co.re/pipelines).
 
 *Note*: To install `nextflow` on your own machines, see [here](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/edit/main/README.md#manual-nextflow-installation).
-
+**For the brave of heart:** *Additional nf-core [`tips and tricks`](https://nf-co.re/docs/usage/introduction#tips-and-tricks)*
+&nbsp;
 ## For the 16S/18S/ITS afficianados
  - Checkout [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
  - A video on the usage and utility of `ampliseq` can be seen [here](https://youtu.be/a0VOEeAvETs).
@@ -26,30 +27,37 @@
 ```bash
 ./make_samplesheet.sh /raid2/scratch/timgoo/SeqData/LockedUpExp8__/ITS
 ```
-*Note*: Depending on the suffixes in your own raw fastq files
+ - The above script generates a table as shown below.
 
-
-```bash
-nextflow run nf-core/ampliseq \
-    -r 2.3.2 \
-    -profile singularity \
-    --input "data" \
-    --FW_primer GTGYCAGCMGCCGCGGTAA \
-    --RV_primer GGACTACNVGGGTWTCTAAT \
-    --metadata "data/Metadata.tsv"
-    --outdir "./results"
-```
-
-*Note: Sample information can also be provided using a [`samplesheet`](https://nf-co.re/ampliseq/2.6.1/docs/usage#samplesheet-input)*.
-
-
-For example, the samplesheet may contain:
 | sampleID | forwardReads | reverseReads      | run |
 | ----------- | ----------- | ----------- | ----------- |
 sample1 | ./data/S1_R1_001.fastq.gz | ./data/S1_R2_001.fastq.gz | A 
 sample2 | ./data/S2_fw.fastq.gz | ./data/S2_rv.fastq.gz | A
 sample3 | ./S4x.fastq.gz | ./S4y.fastq.gz | B
 sample4 | ./a.fastq.gz | ./b.fastq.gz | B  
+
+*Note*: Depending on the suffixes in your own raw fastq files, `line 23` of the [`make_samplesheet.sh`](https://github.com/UKCEH-MolecularEcology/nf-core-tutorial/blob/main/scripts/make_samplesheet.sh) script may need to be edited. 
+*Note*: For example: replace `Exp8` in the `awk function` below with the first part of your sample name. This is usually a project ID or a sequencing run number.
+```bash
+awk -v "OFS=\t" '{$1=$1; sub(/^.*Exp8/, "Exp8", $1); split($1, arr, "_"); $1=arr[1]}1'
+```
+&nbsp;
+### Running [ampliseq](https://nf-ccarbon&empso.re/ampliseq/2.6.1)
+ - `Ampliseq` can be run by using [Singularity](https://osf.io/k89fh/wiki/Singularity/) as shown below.
+```bash
+nextflow run nf-core/ampliseq \
+    -r 2.3.2 \
+    -profile singularity \
+    --input sample.tsv \
+    --FW_primer GTGYCAGCMGCCGCGGTAA \
+    --RV_primer GGACTACNVGGGTWTCTAAT \
+    --metadata "data/Metadata.tsv"
+    --outdir "ampliseq_output"
+```
+*Note: [Metadata](https://nf-co.re/ampliseq/2.6.1/docs/usage#metadata) information is **optional** and can be provided using the format described.
+
+
+
 
 &nbsp;
 &nbsp;
@@ -124,7 +132,7 @@ nextflow run nf-core/ampliseq \
     --outdir "./timgoo_16Sresults"
 ```
 
-**For the brave of heart:** *Additional nf-core [`tips and tricks`](https://nf-co.re/docs/usage/introduction#tips-and-tricks)*
+
 
 
 # ITS analyses
